@@ -19,9 +19,14 @@
 :!!          !!:        !!:                                             
 :!:          :!:        :!:                                            
  ::: :::                                                                
- :: :: :                                                                
-=========================================================================================================================================================================================================================================================
-zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+ :: :: :         
+
+Script bazat pe custom hotkey handling care implementează cyclic tab switching printr-un lightweight event loop, 
+folosind keyboard hooks pentru interceptarea input-ului. Include un strat simplu de debounce + rate limiting pentru a 
+filtra redundant key events și a evita key spam.
+Navigarea se face printr-un circular index (ring logic), cu axare pe low-latency și comportament predictibil în condiții de input rapid.
+
+=======================================================================================================================================================================================================================================================
 =======================================================================================================================================================================================================================================================
 ; Ctrl + Shift + D 
 ^+d::
