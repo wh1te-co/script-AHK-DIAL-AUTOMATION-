@@ -1,2 +1,3 @@
 # script-AHK-DIAL-AUTOMATION-
-NU MERGE FARA DLL***
+moggg meeeeee
+
