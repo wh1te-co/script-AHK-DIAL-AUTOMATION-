@@ -21,12 +21,31 @@
  ::: :::                                                                
  :: :: :                                                                
 =========================================================================================================================================================================================================================================================
-
-HKA
-
+sleep sleep sleep sleep sleep zzz sleep sleep sleep sleep sleep zzz sleep sleep sleep sleep sleep zzz sleep sleep sleep sleep sleep zzz sleep sleep sleep sleep sleep zzz sleep sleep sleep sleep sleep zzz sleep sleep sleep sleep sleep zzz
+=======================================================================================================================================================================================================================================================
 ; Ctrl + Shift + D 
 ^+d::
     Send ^c                  ; copieaza
     Sleep 100                ; pauza (10ms~)
     Run, tel:%Clipboard%     ; C//D 
+return
+
+
+; ================== TAB AUTOMATIZARE ==================
+; TINE APASAT ALT → APARE MENIU ALT-TAB
+; ATINGE ALT → CELALALT TAB SE DESCHIDE 
+
+~LAlt::
+    if (A_PriorHotkey = "~LAlt" && A_TimeSincePriorHotkey < 400)  ; dublu tap repede 
+    {
+        Send !{Tab}   ; schimba fereastra 0.10~
+    }
+    else
+    {
+        Send {LAlt down}   ; apasa alt pt fereastra
+    }
+return
+
+~LAlt up::
+    Send {LAlt up}
 return
