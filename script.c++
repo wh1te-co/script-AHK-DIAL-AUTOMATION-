@@ -35,22 +35,16 @@ Navigarea se face printr-un circular index (ring logic), cu axare pe low-latency
     Run, tel:%Clipboard%     ; C//D 
 return
 
+; =============== Rapid Tab Cycling with single Ctrl hold ===============
+; Hold Ctrl → it will keep sending Ctrl+Tab very quickly
+; Release Ctrl → stops
 
-; ================== TAB AUTOMATIZARE ==================
-; TINE APASAT ALT → APARE MENIU ALT-TAB
-; ATINGE ALT → CELALALT TAB SE DESCHIDE 
-
-~LAlt::
-    if (A_PriorHotkey = "~LAlt" && A_TimeSincePriorHotkey < 400)  ; dublu tap repede 
+~Ctrl::
+    While GetKeyState("Ctrl", "P")  ; While you are physically holding Ctrl
     {
-        Send !{Tab}   ; schimba fereastra 0.10~
+        Send, ^{Tab}                ; Send Ctrl + Tab (next tab)
+        Sleep, 80                   ; Adjust this number for speed:
+                                    ; Lower = faster (try 50 or 40)
+                                    ; Higher = slower (100 is roughly normal speed)
     }
-    else
-    {
-        Send {LAlt down}   ; apasa alt pt fereastra
-    }
-return
-
-~LAlt up::
-    Send {LAlt up}
 return
